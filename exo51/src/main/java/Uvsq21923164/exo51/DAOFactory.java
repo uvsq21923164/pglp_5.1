@@ -2,11 +2,11 @@ package Uvsq21923164.exo51;
 
 public class DAOFactory  {
 	
-	public DAO<Personnel> getPersonnelDAO() {
+	public static DAO<Personnel> getPersonnelDAO() {
 		return new PersonnelSerialDAO();
 	}
 	
-	public DAO<PersonnelGroupe> getPersonnelGroupeDAO() {
+	public static DAO<PersonnelGroupe> getPersonnelGroupeDAO() {
 		return new PersonnelGroupeSerialDAO();
 	}
 	

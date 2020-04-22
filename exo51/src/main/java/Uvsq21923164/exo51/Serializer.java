@@ -16,7 +16,7 @@ public abstract class Serializer<T extends Serializable> {
 		try (ObjectOutputStream	out = new ObjectOutputStream(
 				new BufferedOutputStream(new FileOutputStream(filename)))) {
 			out.writeObject(obj);
-			log.write("Objet " + obj + " créé!");
+			log.write("Objet créé!");
 			return obj;
 		} catch (IOException e) {
 			log.write(e.getMessage());
@@ -39,7 +39,7 @@ public abstract class Serializer<T extends Serializable> {
 		try (ObjectInputStream in = new ObjectInputStream(
 				new BufferedInputStream(new FileInputStream(filename)))) {
 			T obj = (T) in.readObject();
-			log.write("Objet " + obj + " lu!");
+			log.write("Objet lu!");
 			return obj;
 		} catch (ClassNotFoundException | IOException e) {
 			log.write(e.getMessage());

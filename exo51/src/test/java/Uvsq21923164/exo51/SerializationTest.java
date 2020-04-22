@@ -15,6 +15,10 @@ import org.junit.Test;
 
 
 
+
+
+
+
 public class SerializationTest {
 
 	private Personnel p;
@@ -82,9 +86,26 @@ public class SerializationTest {
 		}
 		assertEquals(pg, qg);
 	}
+	public void testPersonnelCRUD() {
+		DAO<Personnel> pc = DAOFactory.getPersonnelDAO();
+		
+		pc.create(p);
+		p.addNumeroTelephone(new NumeroTelephone("Maison", "0123456789"));
+		pc.update(p);
+		assertEquals(p, pc.read(p.getNom()));
+	}
 	
-	
-	
+	@Test()
+	public void testPersonnelGroupeCRUD() {
+		DAO<PersonnelGroupe> pgc = DAOFactory
+				
+				.getPersonnelGroupeDAO();
+		 
+		pgc.create(pg);
+		pg.addPersonnel(p);
+		pgc.update(pg);
+		assertEquals(pg, pgc.read(pg.getId()));
+	}	
 	
 	
 	
